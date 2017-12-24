@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  host: ec2-54-83-60-13.compute-1.amazonaws.com
+  username: dosaulplyrgyuv
+  password: cfae72c11bc350af3038466b4ec81e043dd75c319c14fd07dcaf70793de7b5d2
+  database: d7mgq27b7csti6
+  port: 5432
+
+development:
+  <<: *default
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+
+production:
+  <<: *default
