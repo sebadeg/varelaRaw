@@ -1,0 +1,17 @@
+<h2>Carga de servicios varios</h2>
+<%= form_tag({:controller => "caja", :action => "carga"}, :method => "post", :multipart => true) do %>
+   <%= file_field_tag "archivo", :required => "required" %>
+   <%= submit_tag "Cargar" %>
+<% end %>
+
+<% if @formato_erroneo %>
+  <div>
+     <p> El formato ingresado es incorrecto. Usted sólo puede subir archivos .pdf, .doc y .docx </p>
+  </div>
+<% end %>
+
+<% if @subir_archivo %>
+  <div>
+     <p> El archivo es correcto </p>
+  </div>
+<% end %>

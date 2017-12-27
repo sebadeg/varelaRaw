@@ -1,0 +1,6 @@
+<h1>Importar#index</h1>
+
+<%= form_tag({:controller => "importar", :action => "grados"}, :method => "post", :multipart => true) do %>
+   <%= file_field_tag "archivo", :required => "required" %>
+   <%= submit_tag "Cargar" %>
+<% end %>
