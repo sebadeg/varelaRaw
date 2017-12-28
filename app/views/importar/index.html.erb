@@ -1,6 +1,44 @@
-<h1>Importar#index</h1>
+<h1>Importar</h1>
 
 <%= form_tag({:controller => "importar", :action => "grados"}, :method => "post", :multipart => true) do %>
    <%= file_field_tag "archivo", :required => "required" %>
-   <%= submit_tag "Cargar" %>
+   <%= submit_tag "Cargar Grados" %>
+<% end %>
+
+<%= form_tag({:controller => "importar", :action => "cuentas"}, :method => "post", :multipart => true) do %>
+   <%= file_field_tag "archivo", :required => "required" %>
+   <%= submit_tag "Cargar Cuentas" %>
+<% end %>
+
+<%= form_tag({:controller => "importar", :action => "alumnos"}, :method => "post", :multipart => true) do %>
+   <%= file_field_tag "archivo", :required => "required" %>
+   <%= submit_tag "Cargar Alumnos" %>
+<% end %>
+
+<% if $grados != nil %>
+<h1>Grados</h1>
+<table>
+<% $grados.each do |f| %>
+	<tr><td><%= f.granro %></td><td><%= f.granom %></td><td><%= f.graimpnue %></td></tr>
+<% end %>
+</table>
+<% end %>
+
+<% if $cuentas != nil %>
+<h1>Cuentas</h1>
+<table>
+<% $cuentas.each do |f| %>
+	<tr><td><%= f["GR5NRO"] %></td><td><%= f["GR5APE"] %></td></tr>
+<% end %>
+</table>
+<% end %>
+
+<% if $alumnos != nil %>
+<h1>Alumnos</h1>
+<table>
+<% $alumnos.each do |f| %>
+	<tr><td><%= f["GR5NRO"] %></td><td><%= f.alunro %></td><td><%= f.alunom1 %> <%= f.alunom2 %></td><td><%= f.aluape1 %> <%= f.aluape2 %></td><td><%= f.aluape %></td><td><%= f.aludomcomp %></td><td><%= f.ficalutel %></td><td><%= f.alugrarei %></td><td><%= f.alufecdes %></td><td><%= f.alufechas %></td><td><%= f.alufecdrei %></td><td><%= f.alufechrei %></td>
+	</tr>
+<% end %>
+</table>
 <% end %>

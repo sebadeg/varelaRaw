@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'importar/index'
   post 'importar/grados'
+  post 'importar/cuentas'
+  post 'importar/alumnos'
 
   get 'caja/servicios'
   post 'caja/carga'
