@@ -3,9 +3,23 @@ class ImportarController < ApplicationController
   $grados = nil
   $alumnos = nil
   $cuentas = nil
+  $archs = nil
 
   def index
   end
+
+  def bancos
+    if request.post?
+      $archs = Array.new(0);
+      archivo = params[:archivos].each do |file|
+        nombre = file.original_filename
+        $archs.push({ name: nombre, ext: nombre.slice(nombre.rindex("."), nombre.length).downcase })
+      end
+    end
+    redirect_to importar_index_path
+  end
+
+
 
   require 'dbf' 
 

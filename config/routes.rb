@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'importar/grados'
   post 'importar/cuentas'
   post 'importar/alumnos'
+  post 'importar/bancos'
 
   get 'caja/servicios'
   post 'caja/carga'

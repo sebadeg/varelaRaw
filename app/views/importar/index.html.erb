@@ -1,12 +1,17 @@
 <h1>Importar</h1>
 
+<%= form_tag({:controller => "importar", :action => "bancos"}, :method => "post", :multipart => true) do %>
+   <%= file_field_tag 'archivos[]', required: "required", multiple: true %>
+   <%= submit_tag "Cargar Bancos" %>
+<% end %>
+
 <%= form_tag({:controller => "importar", :action => "grados"}, :method => "post", :multipart => true) do %>
    <%= file_field_tag "archivo", :required => "required" %>
    <%= submit_tag "Cargar Grados" %>
 <% end %>
 
 <%= form_tag({:controller => "importar", :action => "cuentas"}, :method => "post", :multipart => true) do %>
-   <%= file_field_tag "archivo", :required => "required" %>
+   <%= file_field_tag 'archivo', required: "required" %>
    <%= submit_tag "Cargar Cuentas" %>
 <% end %>
 
@@ -14,6 +19,16 @@
    <%= file_field_tag "archivo", :required => "required" %>
    <%= submit_tag "Cargar Alumnos" %>
 <% end %>
+
+<% if $archs != nil %>
+<h1>Archivos</h1>
+<table>
+<% $archs.each do |f| %>
+   <tr><td><%= f[:name] %></td><td><%= f[:ext] %></td></tr>
+<% end %>
+</table>
+<% end %>
+
 
 <% if $grados != nil %>
 <h1>Grados</h1>
